@@ -91,7 +91,13 @@ const Projects = () => {
                 </group>
               </Suspense>
             </Center>
-            <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
+            <OrbitControls 
+              maxPolarAngle={Math.PI / 2} 
+              enableZoom={true}
+              minDistance={2}
+              maxDistance={15}
+              zoomSpeed={1}
+            />
           </Canvas>
         </div>
       </div>
