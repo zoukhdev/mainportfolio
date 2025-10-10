@@ -1,8 +1,6 @@
 <div align="center">
   <br />
-    <a href="https://youtu.be/kt0FrkQgw8w" target="_blank">
-      <img src="https://github.com/user-attachments/assets/2afc2dc3-f840-4d98-9378-f34acd7df173" alt="Project Banner">
-    </a>
+  <img src="https://github.com/user-attachments/assets/2afc2dc3-f840-4d98-9378-f34acd7df173" alt="Project Banner">
   <br />
 
   <div>
@@ -11,50 +9,16 @@
     <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
   </div>
 
-  <h3 align="center">A 3D Dev Portfolio</h3>
-
-   <div align="center">
-     Build this project step by step with our detailed tutorial on <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a> YouTube. Join the JSM family!!
-    </div>
+  <h3 align="center">ZoukhDev - 3D Portfolio</h3>
+  <p align="center">An immersive Three.js portfolio showcasing modern web development skills</p>
 </div>
 
 ## 📋 <a name="table">Table of Contents</a>
 
-1. 🤖 [Introduction](#introduction)
-2. ⚙️ [Tech Stack](#tech-stack)
-3. 🔋 [Features](#features)
-4. 🤸 [Quick Start](#quick-start)
-5. 🕸️ [Snippets (Code to Copy)](#snippets)
-6. 🔗 [Links](#links)
-7. 📦 [Assets](#assets)
-8. 🚀 [More](#more)
-
-## 🚨 Tutorial
-
-This repository contains the code corresponding to an in-depth tutorial available on our YouTube channel, <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a>. 
-
-If you prefer visual learning, this is the perfect resource for you. Follow our tutorial to learn how to build projects like these step-by-step in a beginner-friendly manner!
-
-<a href="https://youtu.be/kt0FrkQgw8w" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/1736fca5-a031-4854-8c09-bc110e3bc16d" /></a>
-
-## <a name="introduction">🤖 Introduction</a>
-
-Built with React.js for handling the user interface, Three.js for rendering 3D elements, and styled with TailwindCSS, the 3D Minimalistic portfolio is a website project. The primary goal is to demonstrate the developer's skills in a unique manner that creates a lasting impact.
-
-If you're getting started and need assistance or face any bugs, join our active Discord community with over **34k+** members. It's a place where people help each other out.
-
-<a href="https://discord.com/invite/n6EdbFJ" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/618f4872-1e10-42da-8213-1d69e486d02e" /></a>
-
-## <a name="tech-stack">⚙️ Tech Stack</a>
-
-- Node.js
-- React.js
-- Three.js
-- React Three Fiber
-- React Three Drei
-- Email JS
-- Vite
-- Tailwind CSS
+1. ⚙️ [Tech Stack](#tech-stack)
+2. 🔋 [Features](#features)
+3. 🤸 [Quick Start](#quick-start)
+4. 🔗 [Links](#links)
 
 ## <a name="features">🔋 Features</a>
 
@@ -88,12 +52,6 @@ Make sure you have the following installed on your machine:
 - [Node.js](https://nodejs.org/en)
 - [npm](https://www.npmjs.com/) (Node Package Manager)
 
-**Cloning the Repository**
-
-```bash
-git clone https://github.com/JavaScript-Mastery-Pro/threejscc-portfolio.git
-cd threejscc-portfolio
-```
 
 **Installation**
 
@@ -123,7 +81,18 @@ npm run dev
 
 Open [http://localhost:5173](http://localhost:5173) in your browser to view the project.
 
-## <a name="snippets">🕸️ Snippets</a>
+## <a name="tech-stack">⚙️ Tech Stack</a>
+
+- Node.js
+- React.js
+- Three.js
+- React Three Fiber
+- React Three Drei
+- Email JS
+- Vite
+- Tailwind CSS
+
+## <a name="snippets">🕸️ Configuration</a>
 
 <details>
 <summary><code>tailwind.config.js</code></summary>
@@ -370,493 +339,11 @@ body {
 
 </details>
 
-<details>
-<summary><code>constants/index.js</code></summary>
 
-```js
-export const navLinks = [
-  {
-    id: 1,
-    name: 'Home',
-    href: '#home',
-  },
-  {
-    id: 2,
-    name: 'About',
-    href: '#about',
-  },
-  {
-    id: 3,
-    name: 'Work',
-    href: '#work',
-  },
-  {
-    id: 4,
-    name: 'Contact',
-    href: '#contact',
-  },
-];
 
-export const clientReviews = [
-  {
-    id: 1,
-    name: 'Emily Johnson',
-    position: 'Marketing Director at GreenLeaf',
-    img: 'assets/review1.png',
-    review:
-      'Working with Adrian was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.',
-  },
-  {
-    id: 2,
-    name: 'Mark Rogers',
-    position: 'Founder of TechGear Shop',
-    img: 'assets/review2.png',
-    review:
-      'Adrian’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional! Fantastic work.',
-  },
-  {
-    id: 3,
-    name: 'John Dohsas',
-    position: 'Project Manager at UrbanTech ',
-    img: 'assets/review3.png',
-    review:
-      'I can’t say enough good things about Adrian. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.',
-  },
-  {
-    id: 4,
-    name: 'Ether Smith',
-    position: 'CEO of BrightStar Enterprises',
-    img: 'assets/review4.png',
-    review:
-      'Adrian was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in both frontend backend dev are top-notch.',
-  },
-];
+## <a name="links">🔗 Resources</a>
 
-export const myProjects = [
-  {
-    title: 'Podcastr - AI Podcast Platform',
-    desc: 'Podcastr is a revolutionary Software-as-a-Service platform that transforms the way podcasts are created. With advanced AI-powered features like text-to-multiple-voices functionality, it allows creators to generate diverse voiceovers from a single text input.',
-    subdesc:
-      'Built as a unique Software-as-a-Service app with Next.js 14, Tailwind CSS, TypeScript, Framer Motion and Convex, Podcastr is designed for optimal performance and scalability.',
-    href: 'https://www.youtube.com/watch?v=zfAb95tJvZQ',
-    texture: '/textures/project/project1.mp4',
-    logo: '/assets/project-logo1.png',
-    logoStyle: {
-      backgroundColor: '#2A1816',
-      border: '0.2px solid #36201D',
-      boxShadow: '0px 0px 60px 0px #AA3C304D',
-    },
-    spotlight: '/assets/spotlight1.png',
-    tags: [
-      {
-        id: 1,
-        name: 'React.js',
-        path: '/assets/react.svg',
-      },
-      {
-        id: 2,
-        name: 'TailwindCSS',
-        path: 'assets/tailwindcss.png',
-      },
-      {
-        id: 3,
-        name: 'TypeScript',
-        path: '/assets/typescript.png',
-      },
-      {
-        id: 4,
-        name: 'Framer Motion',
-        path: '/assets/framer.png',
-      },
-    ],
-  },
-  {
-    title: 'LiveDoc - Real-Time Google Docs Clone',
-    desc: 'LiveDoc is a powerful collaborative app that elevates the capabilities of real-time document editing. As an enhanced version of Google Docs, It supports millions of collaborators simultaneously, ensuring that every change is captured instantly and accurately.',
-    subdesc:
-      'With LiveDoc, users can experience the future of collaboration, where multiple contributors work together in real time without any lag, by using Next.js and Liveblocks newest features.',
-    href: 'https://www.youtube.com/watch?v=y5vE8y_f_OM',
-    texture: '/textures/project/project2.mp4',
-    logo: '/assets/project-logo2.png',
-    logoStyle: {
-      backgroundColor: '#13202F',
-      border: '0.2px solid #17293E',
-      boxShadow: '0px 0px 60px 0px #2F6DB54D',
-    },
-    spotlight: '/assets/spotlight2.png',
-    tags: [
-      {
-        id: 1,
-        name: 'React.js',
-        path: '/assets/react.svg',
-      },
-      {
-        id: 2,
-        name: 'TailwindCSS',
-        path: 'assets/tailwindcss.png',
-      },
-      {
-        id: 3,
-        name: 'TypeScript',
-        path: '/assets/typescript.png',
-      },
-      {
-        id: 4,
-        name: 'Framer Motion',
-        path: '/assets/framer.png',
-      },
-    ],
-  },
-  {
-    title: 'CarePulse - Health Management System',
-    desc: 'An innovative healthcare platform designed to streamline essential medical processes. It simplifies patient registration, appointment scheduling, and medical record management, providing a seamless experience for both healthcare providers and patients.',
-    subdesc:
-      'With a focus on efficiency, CarePulse integrantes complex forms and SMS notifications, by using Next.js, Appwrite, Twillio and Sentry that enhance operational workflows.',
-    href: 'https://www.youtube.com/watch?v=lEflo_sc82g',
-    texture: '/textures/project/project3.mp4',
-    logo: '/assets/project-logo3.png',
-    logoStyle: {
-      backgroundColor: '#60f5a1',
-      background:
-        'linear-gradient(0deg, #60F5A150, #60F5A150), linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(208, 213, 221, 0.8) 100%)',
-      border: '0.2px solid rgba(208, 213, 221, 1)',
-      boxShadow: '0px 0px 60px 0px rgba(35, 131, 96, 0.3)',
-    },
-    spotlight: '/assets/spotlight3.png',
-    tags: [
-      {
-        id: 1,
-        name: 'React.js',
-        path: '/assets/react.svg',
-      },
-      {
-        id: 2,
-        name: 'TailwindCSS',
-        path: 'assets/tailwindcss.png',
-      },
-      {
-        id: 3,
-        name: 'TypeScript',
-        path: '/assets/typescript.png',
-      },
-      {
-        id: 4,
-        name: 'Framer Motion',
-        path: '/assets/framer.png',
-      },
-    ],
-  },
-  {
-    title: 'Horizon - Online Banking Platform',
-    desc: 'Horizon is a comprehensive online banking platform that offers users a centralized finance management dashboard. It allows users to connect multiple bank accounts, monitor real-time transactions, and seamlessly transfer money to other users.',
-    subdesc:
-      'Built with Next.js 14 Appwrite, Dwolla and Plaid, Horizon ensures a smooth and secure banking experience, tailored to meet the needs of modern consumers.',
-    href: 'https://www.youtube.com/watch?v=PuOVqP_cjkE',
-    texture: '/textures/project/project4.mp4',
-    logo: '/assets/project-logo4.png',
-    logoStyle: {
-      backgroundColor: '#0E1F38',
-      border: '0.2px solid #0E2D58',
-      boxShadow: '0px 0px 60px 0px #2F67B64D',
-    },
-    spotlight: '/assets/spotlight4.png',
-    tags: [
-      {
-        id: 1,
-        name: 'React.js',
-        path: '/assets/react.svg',
-      },
-      {
-        id: 2,
-        name: 'TailwindCSS',
-        path: 'assets/tailwindcss.png',
-      },
-      {
-        id: 3,
-        name: 'TypeScript',
-        path: '/assets/typescript.png',
-      },
-      {
-        id: 4,
-        name: 'Framer Motion',
-        path: '/assets/framer.png',
-      },
-    ],
-  },
-  {
-    title: 'Imaginify - AI Photo Manipulation App',
-    desc: 'Imaginify is a groundbreaking Software-as-a-Service application that empowers users to create stunning photo manipulations using AI technology. With features like AI-driven image editing, a payments system, and a credits-based model.',
-    subdesc:
-      'Built with Next.js 14, Cloudinary AI, Clerk, and Stripe, Imaginify combines cutting-edge technology with a user-centric approach. It can be turned into a side income or even a full-fledged business.',
-    href: 'https://www.youtube.com/watch?v=Ahwoks_dawU',
-    texture: '/textures/project/project5.mp4',
-    logo: '/assets/project-logo5.png',
-    logoStyle: {
-      backgroundColor: '#1C1A43',
-      border: '0.2px solid #252262',
-      boxShadow: '0px 0px 60px 0px #635BFF4D',
-    },
-    spotlight: '/assets/spotlight5.png',
-    tags: [
-      {
-        id: 1,
-        name: 'React.js',
-        path: '/assets/react.svg',
-      },
-      {
-        id: 2,
-        name: 'TailwindCSS',
-        path: 'assets/tailwindcss.png',
-      },
-      {
-        id: 3,
-        name: 'TypeScript',
-        path: '/assets/typescript.png',
-      },
-      {
-        id: 4,
-        name: 'Framer Motion',
-        path: '/assets/framer.png',
-      },
-    ],
-  },
-];
-
-export const calculateSizes = (isSmall, isMobile, isTablet) => {
-  return {
-    deskScale: isSmall ? 0.05 : isMobile ? 0.06 : 0.065,
-    deskPosition: isMobile ? [0.5, -4.5, 0] : [0.25, -5.5, 0],
-    cubePosition: isSmall ? [4, -5, 0] : isMobile ? [5, -5, 0] : isTablet ? [5, -5, 0] : [9, -5.5, 0],
-    reactLogoPosition: isSmall ? [3, 4, 0] : isMobile ? [5, 4, 0] : isTablet ? [5, 4, 0] : [12, 3, 0],
-    ringPosition: isSmall ? [-5, 7, 0] : isMobile ? [-10, 10, 0] : isTablet ? [-12, 10, 0] : [-24, 10, 0],
-    targetPosition: isSmall ? [-5, -10, -10] : isMobile ? [-9, -10, -10] : isTablet ? [-11, -7, -10] : [-13, -13, -10],
-  };
-};
-
-export const workExperiences = [
-  {
-    id: 1,
-    name: 'Framer',
-    pos: 'Lead Web Developer',
-    duration: '2022 - Present',
-    title: "Framer serves as my go-to tool for creating interactive prototypes. I use it to bring designs to  life, allowing stakeholders to experience the user flow and interactions before development.",
-    icon: '/assets/framer.svg',
-    animation: 'victory',
-  },
-  {
-    id: 2,
-    name: 'Figma',
-    pos: 'Web Developer',
-    duration: '2020 - 2022',
-    title: "Figma is my collaborative design platform of choice. I utilize it to work seamlessly with team members and clients, facilitating real-time feedback and design iterations. Its cloud-based.",
-    icon: '/assets/figma.svg',
-    animation: 'clapping',
-  },
-  {
-    id: 3,
-    name: 'Notion',
-    pos: 'Junior Web Developer',
-    duration: '2019 - 2020',
-    title: "Notion helps me keep my projects organized. I use it for project management, task tracking, and as a central hub for documentation, ensuring that everything from design notes to.",
-    icon: '/assets/notion.svg',
-    animation: 'salute',
-  },
-];
-```
-
-</details>
-
-<details>
-<summary><code>components/Cube.js</code></summary>
-
-```js
-/*
-    Auto-generated by: https://github.com/pmndrs/gltfjsx
-*/
-
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { useRef, useState } from 'react';
-import { Float, useGLTF, useTexture } from '@react-three/drei';
-
-const Cube = ({ ...props }) => {
-  const { nodes } = useGLTF('models/cube.glb');
-
-  const texture = useTexture('textures/cube.png');
-
-  const cubeRef = useRef();
-  const [hovered, setHovered] = useState(false);
-
-  useGSAP(() => {
-    gsap
-      .timeline({
-        repeat: -1,
-        repeatDelay: 0.5,
-      })
-      .to(cubeRef.current.rotation, {
-        y: hovered ? '+=2' : `+=${Math.PI * 2}`,
-        x: hovered ? '+=2' : `-=${Math.PI * 2}`,
-        duration: 2.5,
-        stagger: {
-          each: 0.15,
-        },
-      });
-  });
-
-  return (
-    <Float floatIntensity={2}>
-      <group position={[9, -4, 0]} rotation={[2.6, 0.8, -1.8]} scale={0.74} dispose={null} {...props}>
-        <mesh
-          ref={cubeRef}
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube.geometry}
-          material={nodes.Cube.material}
-          onPointerEnter={() => setHovered(true)}>
-          <meshMatcapMaterial matcap={texture} toneMapped={false} />
-        </mesh>
-      </group>
-    </Float>
-  );
-};
-
-useGLTF.preload('models/cube.glb');
-
-export default Cube;
-```
-
-</details>
-
-<details>
-<summary><code>components/Ring.js</code></summary>
-
-```js
-import { useGSAP } from '@gsap/react';
-import { Center, useTexture } from '@react-three/drei';
-import gsap from 'gsap';
-import { useCallback, useRef } from 'react';
-
-const Rings = ({ position }) => {
-  const refList = useRef([]);
-  const getRef = useCallback((mesh) => {
-    if (mesh && !refList.current.includes(mesh)) {
-      refList.current.push(mesh);
-    }
-  }, []);
-
-  const texture = useTexture('textures/rings.png');
-
-  useGSAP(
-    () => {
-      if (refList.current.length === 0) return;
-
-      refList.current.forEach((r) => {
-        r.position.set(position[0], position[1], position[2]);
-      });
-
-      gsap
-        .timeline({
-          repeat: -1,
-          repeatDelay: 0.5,
-        })
-        .to(
-          refList.current.map((r) => r.rotation),
-          {
-            y: `+=${Math.PI * 2}`,
-            x: `-=${Math.PI * 2}`,
-            duration: 2.5,
-            stagger: {
-              each: 0.15,
-            },
-          },
-        );
-    },
-    {
-      dependencies: position,
-    },
-  );
-
-  return (
-    <Center>
-      <group scale={0.5}>
-        {Array.from({ length: 4 }, (_, index) => (
-          <mesh key={index} ref={getRef}>
-            <torusGeometry args={[(index + 1) * 0.5, 0.1]}></torusGeometry>
-            <meshMatcapMaterial matcap={texture} toneMapped={false} />
-          </mesh>
-        ))}
-      </group>
-    </Center>
-  );
-};
-
-export default Rings;
-```
-
-</details>
-
-<details>
-<summary>About Earth Maps</summary>
-
-```js
-globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-```
-
-</details>
-
-<details>
-<summary><code>components/HackerRoom.jsx</code></summary>
-
-```jsx
-/*
-Auto-generated by: https://github.com/pmndrs/gltfjsx
-Command: npx gltfjsx@6.5.0 hacker-room-new.glb -T 
-Files: hacker-room-new.glb [34.62MB] > /Users/hsuwinlat/Desktop/jsm pj/threejscc-portfolio/public/models/hacker-room-new-transformed.glb [2.56MB] (93%)
-*/
-
-import { useGLTF, useTexture } from '@react-three/drei';
-
-export function HackerRoom(props) {
-  const { nodes, materials } = useGLTF('/models/hacker-room.glb');
-
-  const monitortxt = useTexture('textures/desk/monitor.png');
-  const screenTxt = useTexture('textures/desk/screen.png');
-
-  return (
-    <group {...props} dispose={null}>
-      <mesh geometry={nodes.screen_screens_0.geometry} material={materials.screens}>
-        <meshMatcapMaterial map={screenTxt} />
-      </mesh>
-      <mesh geometry={nodes.screen_glass_glass_0.geometry} material={materials.glass} />
-      <mesh geometry={nodes.table_table_mat_0_1.geometry} material={materials.table_mat} />
-      <mesh geometry={nodes.table_table_mat_0_2.geometry} material={materials.computer_mat}>
-        <meshMatcapMaterial map={monitortxt} />
-      </mesh>
-      <mesh geometry={nodes.table_table_mat_0_3.geometry} material={materials.server_mat} />
-      <mesh geometry={nodes.table_table_mat_0_4.geometry} material={materials.vhsPlayer_mat} />
-      <mesh geometry={nodes.table_table_mat_0_5.geometry} material={materials.stand_mat} />
-      <mesh geometry={nodes.table_table_mat_0_6.geometry} material={materials.mat_mat} />
-      <mesh geometry={nodes.table_table_mat_0_7.geometry} material={materials.arm_mat} />
-      <mesh geometry={nodes.table_table_mat_0_8.geometry} material={materials.tv_mat}>
-        <meshMatcapMaterial map={monitortxt} />
-      </mesh>
-      <mesh geometry={nodes.table_table_mat_0_9.geometry} material={materials.cables_mat} />
-      <mesh geometry={nodes.table_table_mat_0_10.geometry} material={materials.props_mat} />
-      <mesh geometry={nodes.table_table_mat_0_11.geometry} material={materials.ground_mat} />
-      <mesh geometry={nodes.table_table_mat_0_12.geometry} material={materials.key_mat} />
-    </group>
-  );
-}
-
-useGLTF.preload('/models/hacker-room.glb');
-```
-
-</details>
-
-## <a name="links">🔗 Links</a>
-
-Here is the list of all the resources used in the project video:
+3D models and resources used in this project:
 
 - [Hacker Room](https://sketchfab.com/3d-models/hacker-room-stylized-a0cfe6edf2dd494c8a95addf6bb13a10)
 - [Computer](https://sketchfab.com/3d-models/3d-computer-sketchfab-weekly-11-mar23-d9931a9aba7c4ea1bc12b2a59dcef16e)
@@ -872,11 +359,13 @@ Here is the list of all the resources used in the project video:
 
 Models and Assets used in the project can be found [here](https://drive.google.com/file/d/1UiJyotDmF2_tBC-GeLpRZuFY_gx5e7iX/view?usp=sharing)
 
-## <a name="more">🚀 More</a>
-**Advance your skills with Next.js Pro Course**
+## 📞 Contact
 
-Enjoyed creating this project? Dive deeper into our PRO courses for a richer learning experience. They're packed with detailed explanations, cool features, and exercises to boost your skills. Give it a go!
+For inquiries or collaboration:
+- **Email:** zco.deveolpment@gmail.com
+- **GitHub:** [github.com/zoukhdev](https://github.com/zoukhdev/)
+- **Instagram:** [@zoukhdev](https://www.instagram.com/zoukhdev)
 
-<a href="https://www.jsmastery.pro/ultimate-next-course" target="_blank">
-<img src="https://i.ibb.co/804sPK6/Image-720.png" alt="Project Banner">
-</a>
+---
+
+**© 2025 Oussama Zoukh / ZoukhDev. All rights reserved.**
