@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { clientReviews } from '../constants/index.js';
 import { supabase } from '../lib/supabaseClient.js';
 
 const Clients = () => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollContainerRef = useRef(null);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -21,6 +23,11 @@ const Clients = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  // Calculate how many groups of 3 we have
+  const totalGroups = Math.ceil(reviews.length / 3);
+  const currentGroup = Math.floor(currentIndex / 3);
+
 
   // Load testimonials from Supabase
   const loadTestimonials = async () => {
@@ -124,37 +131,275 @@ const Clients = () => {
       {loading ? (
         <div className="text-white-600 mt-6">Loading testimonials...</div>
       ) : (
-        <div className="client-container">
-          {reviews.map((item) => (
-          <div key={`review-${item.id}`} className="client-review">
-            <div>
-              <p className="text-white-800 font-light">{item.review}</p>
+        <div className="mt-12">
+          {/* Testimonials Container - 3 per view with touch/drag */}
+          <div 
+            ref={scrollContainerRef}
+            className="testimonials-container"
+            style={{ 
+              display: 'flex',
+              gap: '24px',
+              overflowX: 'auto',
+              overflowY: 'hidden',
+              width: '100%',
+              maxWidth: '1200px',
+              margin: '0 auto',
+              paddingBottom: '16px',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+              WebkitOverflowScrolling: 'touch',
+              scrollBehavior: 'smooth',
+              touchAction: 'pan-x',
+              justifyContent: 'center'
+            }}
+            onWheel={(e) => {
+              e.preventDefault();
+              const scrollAmount = e.deltaY > 0 ? 1 : -1;
+              const newIndex = Math.max(0, Math.min(reviews.length - 3, currentIndex + scrollAmount * 3));
+              setCurrentIndex(newIndex);
+            }}
+            onTouchStart={(e) => {
+              const touch = e.touches[0];
+              e.currentTarget.dataset.startX = touch.clientX.toString();
+              e.currentTarget.dataset.startY = touch.clientY.toString();
+              e.currentTarget.dataset.startIndex = currentIndex.toString();
+              e.currentTarget.dataset.isDragging = 'true';
+            }}
+            onTouchMove={(e) => {
+              if (e.currentTarget.dataset.isDragging === 'true') {
+                const touch = e.touches[0];
+                const startX = parseFloat(e.currentTarget.dataset.startX || '0');
+                const startY = parseFloat(e.currentTarget.dataset.startY || '0');
+                const startIndex = parseFloat(e.currentTarget.dataset.startIndex || '0');
+                
+                const deltaX = startX - touch.clientX;
+                const deltaY = startY - touch.clientY;
+                
+                // Only trigger if horizontal movement is significant and greater than vertical
+                if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY)) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  
+                  const direction = deltaX > 0 ? 1 : -1;
+                  const newIndex = Math.max(0, Math.min(reviews.length - 3, startIndex + direction * 3));
+                  
+                  if (newIndex !== currentIndex) {
+                    setCurrentIndex(newIndex);
+                    e.currentTarget.dataset.startIndex = newIndex.toString();
+                    e.currentTarget.dataset.startX = touch.clientX.toString();
+                  }
+                }
+              }
+            }}
+            onTouchEnd={(e) => {
+              delete e.currentTarget.dataset.startX;
+              delete e.currentTarget.dataset.startY;
+              delete e.currentTarget.dataset.startIndex;
+              delete e.currentTarget.dataset.isDragging;
+            }}
+          >
+            {/* Show 3 testimonials at a time */}
+            {reviews.slice(currentIndex, currentIndex + 3).map((item, index) => (
+              <div 
+                key={`review-${item.id}`} 
+                style={{ 
+                  flexShrink: 0,
+                  width: '350px',
+                  minWidth: '350px',
+                  maxWidth: '350px',
+                  borderRadius: '8px',
+                  padding: '24px',
+                  backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                  backdropFilter: 'blur(10px)',
+                  boxSizing: 'border-box'
+                }}
+              >
+                <div>
+                  <p style={{ 
+                    color: '#BEC1CF', 
+                    fontWeight: '300', 
+                    marginBottom: '24px', 
+                    fontSize: '14px', 
+                    lineHeight: '1.6',
+                    wordWrap: 'break-word',
+                    overflowWrap: 'break-word',
+                    whiteSpace: 'normal',
+                    hyphens: 'auto'
+                  }}>
+                    {item.review}
+                  </p>
 
-              <div className="client-content">
-                <div className="flex gap-3">
-                  <div className="flex flex-col">
-                    <p className="font-semibold text-white-800">{item.name}</p>
-                    <p className="text-white-500 md:text-base text-sm font-light">{item.position}</p>
+                  <div style={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    alignItems: 'center' 
+                  }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
+                      <p style={{ 
+                        fontWeight: '600', 
+                        color: '#BEC1CF', 
+                        fontSize: '14px',
+                        margin: 0,
+                        wordWrap: 'break-word',
+                        overflowWrap: 'break-word',
+                        whiteSpace: 'normal'
+                      }}>
+                        {item.name}
+                      </p>
+                      <p style={{ 
+                        color: '#8B8B8B', 
+                        fontSize: '12px', 
+                        fontWeight: '300',
+                        margin: 0,
+                        wordWrap: 'break-word',
+                        overflowWrap: 'break-word',
+                        whiteSpace: 'normal'
+                      }}>
+                        {item.position}
+                      </p>
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      {Array.from({ length: 5 }).map((_, starIndex) => {
+                        const filled = starIndex < (item.rating ?? 5);
+                        return (
+                          <img
+                            key={starIndex}
+                            src="/assets/star.png"
+                            alt="star"
+                            style={{
+                              width: '16px',
+                              height: '16px',
+                              opacity: filled ? 1 : 0.3
+                            }}
+                          />
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
-
-                <div className="flex self-end items-center gap-2">
-                  {Array.from({ length: 5 }).map((_, index) => {
-                    const filled = index < (item.rating ?? 5);
-                    return (
-                      <img
-                        key={index}
-                        src="/assets/star.png"
-                        alt="star"
-                        className={`w-5 h-5 ${filled ? '' : 'opacity-30'}`}
-                      />
-                    );
-                  })}
-                </div>
               </div>
-            </div>
+            ))}
           </div>
-          ))}
+          
+          {/* Arrow Pagination Controls */}
+          {reviews.length > 3 && (
+            <div style={{ 
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center',
+              marginTop: '32px',
+              gap: '16px'
+            }}>
+              {/* Left Arrow */}
+              <button
+                onClick={() => {
+                  const newIndex = Math.max(0, currentIndex - 3);
+                  setCurrentIndex(newIndex);
+                }}
+                disabled={currentIndex === 0}
+                style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: currentIndex === 0 ? 'rgba(139, 139, 139, 0.1)' : 'rgba(190, 193, 207, 0.3)',
+                  border: 'none',
+                  cursor: currentIndex === 0 ? 'not-allowed' : 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.3s ease',
+                  opacity: currentIndex === 0 ? 0.3 : 0.7
+                }}
+                onMouseEnter={(e) => {
+                  if (currentIndex > 0) {
+                    e.target.style.backgroundColor = 'rgba(190, 193, 207, 0.5)';
+                    e.target.style.transform = 'scale(1.1)';
+                    e.target.style.opacity = '1';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (currentIndex > 0) {
+                    e.target.style.backgroundColor = 'rgba(190, 193, 207, 0.3)';
+                    e.target.style.transform = 'scale(1)';
+                    e.target.style.opacity = '0.7';
+                  }
+                }}
+              >
+                <img 
+                  src="/assets/left-arrow.png" 
+                  alt="Previous"
+                  style={{
+                    width: '14px',
+                    height: '14px',
+                    filter: 'invert(1)',
+                    opacity: 0.8
+                  }}
+                />
+              </button>
+
+              {/* Page Indicator */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                color: '#BEC1CF',
+                fontSize: '14px',
+                fontWeight: '500'
+              }}>
+                <span>{currentGroup + 1}</span>
+                <span style={{ opacity: 0.5 }}>/</span>
+                <span style={{ opacity: 0.7 }}>{totalGroups}</span>
+              </div>
+
+              {/* Right Arrow */}
+              <button
+                onClick={() => {
+                  const newIndex = Math.min(reviews.length - 3, currentIndex + 3);
+                  setCurrentIndex(newIndex);
+                }}
+                disabled={currentIndex >= reviews.length - 3}
+                style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: currentIndex >= reviews.length - 3 ? 'rgba(139, 139, 139, 0.1)' : 'rgba(190, 193, 207, 0.3)',
+                  border: 'none',
+                  cursor: currentIndex >= reviews.length - 3 ? 'not-allowed' : 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.3s ease',
+                  opacity: currentIndex >= reviews.length - 3 ? 0.3 : 0.7
+                }}
+                onMouseEnter={(e) => {
+                  if (currentIndex < reviews.length - 3) {
+                    e.target.style.backgroundColor = 'rgba(190, 193, 207, 0.5)';
+                    e.target.style.transform = 'scale(1.1)';
+                    e.target.style.opacity = '1';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (currentIndex < reviews.length - 3) {
+                    e.target.style.backgroundColor = 'rgba(190, 193, 207, 0.3)';
+                    e.target.style.transform = 'scale(1)';
+                    e.target.style.opacity = '0.7';
+                  }
+                }}
+              >
+                <img 
+                  src="/assets/right-arrow.png" 
+                  alt="Next"
+                  style={{
+                    width: '14px',
+                    height: '14px',
+                    filter: 'invert(1)',
+                    opacity: 0.8
+                  }}
+                />
+              </button>
+            </div>
+          )}
         </div>
       )}
 

@@ -47,6 +47,110 @@ body {
     @apply flex gap-4 items-center justify-center cursor-pointer p-3 rounded-md bg-black-300  transition-all active:scale-95 text-white mx-auto;
   }
 
+  /* Custom scrollbar styles */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for testimonials */
+  .testimonials-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Force horizontal scroll for testimonials */
+  .testimonials-container {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap;
+  }
+
+  .testimonials-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .testimonials-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Hide scrollbar for all horizontal scroll containers */
+  div[style*="overflowX: auto"]::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  div[style*="overflowX: auto"] {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+
+  /* Enhanced desktop scrolling for testimonials */
+  .testimonials-scroll-container {
+    cursor: grab;
+  }
+
+  .testimonials-scroll-container:active {
+    cursor: grabbing;
+  }
+
+  /* New testimonials container styles */
+  .testimonials-container {
+    touch-action: pan-x;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+  }
+
+  .testimonials-container:active {
+    cursor: grabbing;
+    touch-action: pan-x;
+  }
+
+  /* Ensure testimonials don't overlap */
+  .testimonials-container > div {
+    flex-shrink: 0 !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  /* Force proper spacing */
+  .testimonials-container {
+    align-items: stretch;
+  }
+
+  /* Text wrapping for testimonials */
+  .testimonials-container p {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    hyphens: auto !important;
+  }
+
+  /* Ensure testimonial content doesn't overflow */
+  .testimonials-container > div {
+    overflow: hidden;
+  }
+
+  /* Ensure smooth scrolling on desktop */
+  .testimonials-scroll-container {
+    scroll-behavior: smooth;
+  }
+
+  /* Enhanced touch support for mobile */
+  .testimonials-scroll-container {
+    touch-action: manipulation;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Allow touch scrolling */
+  .testimonials-scroll-container:active {
+    touch-action: manipulation;
+  }
+
   .btn-ping {
     @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75;
   }
@@ -89,6 +193,13 @@ body {
   /* clients section */
   .client-container {
     @apply grid md:grid-cols-2 grid-cols-1 gap-5 mt-12;
+  }
+
+  /* Override for horizontal scrolling testimonials */
+  .testimonials-scroll-container .client-container {
+    @apply flex gap-6 mt-12;
+    grid-template-columns: none;
+    display: flex !important;
   }
 
   .client-review {
